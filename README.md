@@ -5,11 +5,11 @@ At the moment, it's tailored to a specific task:
 
 
 
-find all mentions of a _`<barcode>`_ tag and insert corresponding picture links in the format
+find all mentions of a _`\<barcode>`_ tag and insert corresponding picture links in the format
      `https://storage.cloud.google.com/fotobank1/***LINK***?hl=ru` with a `<picture>` tag after the barcode.
      
 Program will read data from the input file, looking for the barcode IDs
-It will then find corresponding link IDs in the second file given as an argument and translate them into the link form
+It will then find corresponding link IDs in the second file given as an argumant and translate them into the link form
 Then, it will populate the file with those links, including the `<picture>` tag, after the corresponding `<barcode>` tag.
 
 

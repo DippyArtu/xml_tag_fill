@@ -6,7 +6,7 @@
 #    By: jsalome <jsalome@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/06 17:45:47 by jsalome           #+#    #+#              #
-#    Updated: 2020/03/14 18:33:46 by Artur            ###   ########.fr        #
+#    Updated: 2020/03/15 19:18:59 by Artur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = xml_tag_fill
 SRC_DIR = ./srcs/
 SRC = 	xml_tag_fill.c\
 		file_manipulations.c\
-		generate_file.c
+		generate_output.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

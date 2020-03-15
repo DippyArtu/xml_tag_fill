@@ -12,7 +12,6 @@ typedef struct 		s_file
 	char 	*file_out;
 	char 	*file_tmp;
 	bool	file_start;
-	bool	file_end;
 }					t_file;
 
 char 		*generate_link(char *code, char *barcode_file);
