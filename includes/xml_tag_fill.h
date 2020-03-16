@@ -19,5 +19,6 @@ char 		*read_file(char *file_name);
 char 		*generate_file(char *barcode_file, t_file *pos);
 char		*find_barcode(t_file *pos);
 void		transfer_text(t_file *pos);
+//void		ft_putstr_no_terminator_fd(char const *s, int fd);
 
 #endif

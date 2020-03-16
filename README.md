@@ -41,4 +41,4 @@ All input files must be in the working directory.
 Even though the functionality of the program is very limited at the moment, it can be used in different ways by changing 
 tag names and link types in the source code.
 
-I also plan to make a fully functional program later.
+I also plan to make a fully functional program some time.

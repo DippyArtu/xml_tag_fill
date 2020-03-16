@@ -12,7 +12,7 @@ char 		*generate_link(char *code, char *barcode_file)
 
 	if (!(fd = open(barcode_file, O_RDONLY)))
 	{
-		printf("barcode file error\n");
+		printf("barcode file open error\n");
 		exit (0);
 	}
 	link_output = NULL;

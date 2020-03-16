@@ -11,23 +11,15 @@ char 		*read_file(char *file_name)
 	c = 1;
 	if (!(fd = open(file_name, O_RDONLY)))
 	{
-		printf("file error\n");
+		printf("file open error\n");
 		exit (0);
 	}
 	printf("FILE OPPENED\n\n");
 	file = ft_strnew(1);
 	while (get_next_line(fd, &line) > 0)
 	{
-		if (!(temp = ft_strdup(line)))
-		{
-			printf("READ ERROR temp strdup\n");
-			exit(0);
-		}
-		if (!(file = ft_strjoin(file, temp)))
-		{
-			printf("READ ERROR file strjoin\n");
-			exit(0);
-		}
+		temp = ft_strdup(line);
+		file = ft_strjoin(file, temp);
 		printf("%i reading.....\n", c);
 		c++;
 		ft_strdel(&temp);
@@ -37,7 +29,7 @@ char 		*read_file(char *file_name)
 	ft_strdel(&line);
 	if (get_next_line(fd, &line) == -1)
 	{
-		printf("file gnl error\n");
+		printf("FILE READ GNL ERROR\n");
 		exit (0);
 	}
 	ft_strdel(&line);
