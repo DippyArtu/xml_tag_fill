@@ -6,17 +6,30 @@ char 		*read_file(char *file_name)
 	char 	*line;
 	char 	*temp;
 	char 	*file;
+	int 	c;
 
+	c = 1;
 	if (!(fd = open(file_name, O_RDONLY)))
 	{
 		printf("file error\n");
 		exit (0);
 	}
+	printf("FILE OPPENED\n\n");
 	file = ft_strnew(1);
 	while (get_next_line(fd, &line) > 0)
 	{
-		temp = ft_strdup(line);
-		file = ft_strjoin(file, temp);
+		if (!(temp = ft_strdup(line)))
+		{
+			printf("READ ERROR temp strdup\n");
+			exit(0);
+		}
+		if (!(file = ft_strjoin(file, temp)))
+		{
+			printf("READ ERROR file strjoin\n");
+			exit(0);
+		}
+		printf("%i reading.....\n", c);
+		c++;
 		ft_strdel(&temp);
 		ft_strdel(&line);
 	}
