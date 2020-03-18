@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy_till_char.c                              :+:      :+:    :+:   */
+/*   ft_strjoin_till_char.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsalome <jsalome@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char			*ft_strcpy_till_char(char const *str1, char const *str2, char c)
+char			*ft_strjoin_till_char(char const *str1, char const *str2, char c)
 {
 	char		*str3;
 	char		*tmp;

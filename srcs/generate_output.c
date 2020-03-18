@@ -40,6 +40,7 @@ char 	*generate_file(char *barcode_file, t_file *file)
 	char 	*output;
 	char 	*link;
 	char 	*code;
+	char 	*tmp;
 
 	printf("GENERATION START\n\n");
 	file->file_tmp = file->position;
@@ -52,17 +53,20 @@ char 	*generate_file(char *barcode_file, t_file *file)
 			printf("CODE FOUND\n");
 			if ((link = generate_link(code, barcode_file)))
 			{
-				file->file_out = ft_strjoin(file->file_out, link);
+				tmp = ft_strjoin(file->file_out, link);
+				//ft_strdel(&file->file_out);
+				file->file_out = tmp;
+				ft_strdel(&tmp);
 				printf("LINK INSERTED\n\n");
 			}
-			ft_strdel(&code);
+			//ft_strdel(&code);
 			ft_strdel(&link);
 		}
 	}
 	output = ft_strjoin(file->file_out, file->position_tmp);
 	printf("DONE GENERATING\n\n");
 	ft_strdel(&file->position);
-	ft_strdel(&file->file_out);
+//	ft_strdel(&file->file_out);
 	ft_strdel(&code);
 	ft_strdel(&link);
 	return (output);
