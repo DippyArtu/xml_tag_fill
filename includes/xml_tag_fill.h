@@ -20,6 +20,6 @@ char 		*read_file(char *file_name);
 char 		*generate_file(char *barcode_file, t_file *pos);
 char		*find_barcode(t_file *pos);
 void		transfer_text(t_file *pos);
-char 		*gen_name(char *old_name);
+char 		*get_name(char *old_name);
 
 #endif

@@ -2,7 +2,7 @@
 
 #include "xml_tag_fill.h"
 
-char 		*gen_name(char *old_name)
+char 		*get_name(char *old_name)
 {
 	char 	prefix[] = "new_";
 	char 	*name;
@@ -29,16 +29,17 @@ int 		main(int argv, char **argc)
 	}
 	file = (t_file *)malloc(sizeof(t_file));
 	file->file_start = false;
+	file->file_out = NULL;
+	file->position_tmp = NULL;
 	file->position = read_file(argc[1]);
 	printf("FILE READ\n\n");
 
 	output = generate_file(argc[2], file);
 	printf("FILE GENERATED\n\n");
 
-	name = gen_name(argc[1]);
+	name = get_name(argc[1]);
 	output_file_fd = open(name, O_RDWR | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
 	ft_strdel(&name);
-	free(&file->position);
 	printf("NEW FILE CREATED\n\n");
 
 	ft_putstr_fd(output, output_file_fd);

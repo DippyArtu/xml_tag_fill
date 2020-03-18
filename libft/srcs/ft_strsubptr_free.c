@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_till_char.c                             :+:      :+:    :+:   */
+/*   ft_strsubptr_free.c           		                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsalome <jsalome@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 14:35:50 by jsalome           #+#    #+#             */
-/*   Updated: 2020/03/18 18:07:31 by Artur            ###   ########.fr       */
+/*   Updated: 2020/03/18 16:34:00 by Artur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strjoin_till_char(char *str1, char const *str2, char c)
+char			*ft_strsubptr_free(char *str, char const *ptr)
 {
-	char		*str3;
-	char		*tmp;
-	size_t		str1_c;
-	size_t		str2_c;
+	char		*new;
+	size_t		str_c;
+	size_t		ptr_c;
+	size_t 		copy_c;
 
-	str1_c = 0;
-	str2_c = 0;
-	if (!str1 || !str2 || !c)
+	str_c = 0;
+	ptr_c = 0;
+	if (!str)
 		return (NULL);
-	while (str1[str1_c])
-		str1_c += 1;
-	while (str2[str2_c] != c)
-		str2_c += 1;
-	if (!(str3 = (char *)malloc(sizeof(char) * (str1_c + str2_c + 1))))
+	else if (!ptr)
+		return ((char *)str);
+	while (str[str_c])
+		str_c += 1;
+	while (ptr[ptr_c])
+		ptr_c += 1;
+	copy_c = str_c - ptr_c;
+	if (!(new = (char *)malloc(sizeof(char) * ((copy_c) + 1))))
 		return (NULL);
-	tmp = str3;
-	while (*str1 != '\0')
-		*tmp++ = *str1++;
-	while (*str2 != c)
-		*tmp++ = *str2++;
-	*tmp = '\0';
-	ft_strdel(&str1);
-	return (str3);
+	while (copy_c)
+	{
+		*new++ = *str++;
+		copy_c--;
+	}
+	*new = '\0';
+	ft_strdel(&str);
+	return (new);
 }

@@ -22,7 +22,7 @@ char 		*generate_link(char *code, char *barcode_file)
 		test = ft_strncmp(line, code, code_c);
 		if (!test)
 		{
-			link_output = ft_strnew(500);
+			link_output = ft_strnew(200);
 			link_output = ft_strcat(link_output, link_start);
 			link_output = ft_strcat(link_output, line);
 			link_output = ft_strcat(link_output, link_end);
@@ -30,8 +30,11 @@ char 		*generate_link(char *code, char *barcode_file)
 		}
 		ft_strdel(&line);
 	}
+	if (line)
+		ft_strdel(&line);
+	if (code)
+		ft_strdel(&code);
 	close(fd);
-	ft_strdel(&line);
 	return(link_output);
 }
 
@@ -40,7 +43,6 @@ char 	*generate_file(char *barcode_file, t_file *file)
 	char 	*output;
 	char 	*link;
 	char 	*code;
-	char 	*tmp;
 
 	printf("GENERATION START\n\n");
 	file->file_tmp = file->position;
@@ -53,21 +55,13 @@ char 	*generate_file(char *barcode_file, t_file *file)
 			printf("CODE FOUND\n");
 			if ((link = generate_link(code, barcode_file)))
 			{
-				tmp = ft_strjoin(file->file_out, link);
-				//ft_strdel(&file->file_out);
-				file->file_out = tmp;
-				ft_strdel(&tmp);
+				file->file_out = ft_strjoin(file->file_out, link);
+				ft_strdel(&link);
 				printf("LINK INSERTED\n\n");
 			}
-			//ft_strdel(&code);
-			ft_strdel(&link);
 		}
 	}
 	output = ft_strjoin(file->file_out, file->position_tmp);
 	printf("DONE GENERATING\n\n");
-	ft_strdel(&file->position);
-//	ft_strdel(&file->file_out);
-	ft_strdel(&code);
-	ft_strdel(&link);
 	return (output);
 }
