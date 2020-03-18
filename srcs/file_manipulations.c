@@ -63,12 +63,15 @@ char		*find_barcode(t_file *file)
 void		transfer_text(t_file *file)
 {
 	char *tmp;
+	char *file_tmp;
 
 	tmp = NULL;
 	if (file->file_start && file->position) // this is for every consecutive pass
 	{
 		tmp = ft_strsubptr(file->position_tmp, file->position);
-		file->file_out = ft_strjoin(file->file_out, tmp);
+		file_tmp = file->file_out;
+		file->file_out = ft_strjoin(file_tmp, tmp);
+		ft_strdel(&file_tmp);
 		ft_strdel(&tmp);
 	}
 	else if (!file->file_start) // on a first pass we go here to transfer everything before the first code
