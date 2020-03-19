@@ -6,7 +6,7 @@
 #    By: jsalome <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/09 18:19:22 by jsalome           #+#    #+#              #
-#    Updated: 2020/03/15 14:40:20 by Artur            ###   ########.fr        #
+#    Updated: 2020/03/19 19:11:30 by Artur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ SRC =       ft_arrnew.c\
             ft_swap.c\
             get_next_line.c\
             ft_wordcounter.c\
-            ft_strjoin_till_char.c\
+            ft_strdup_till_char.c\
             ft_skipnchars.c\
             ft_strsubptr_free.c\
             ft_strsubptr.c\

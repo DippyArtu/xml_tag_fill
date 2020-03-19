@@ -43,6 +43,7 @@ char 	*generate_file(char *barcode_file, t_file *file)
 	char 	*output;
 	char 	*link;
 	char 	*code;
+	char	*tmp;
 
 	printf("GENERATION START\n\n");
 	file->file_tmp = file->position;
@@ -55,7 +56,9 @@ char 	*generate_file(char *barcode_file, t_file *file)
 			printf("CODE FOUND\n");
 			if ((link = generate_link(code, barcode_file)))
 			{
+				tmp = file->file_out;
 				file->file_out = ft_strjoin(file->file_out, link);
+				ft_strdel(&tmp);
 				ft_strdel(&link);
 				printf("LINK INSERTED\n\n");
 			}

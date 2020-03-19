@@ -1,5 +1,3 @@
-//TODO Figure out all the memory problem crap
-
 #include "xml_tag_fill.h"
 
 char 		*get_name(char *old_name)
@@ -31,6 +29,7 @@ int 		main(int argv, char **argc)
 	file->file_start = false;
 	file->file_out = NULL;
 	file->position_tmp = NULL;
+
 	file->position = read_file(argc[1]);
 	printf("FILE READ\n\n");
 
@@ -45,6 +44,13 @@ int 		main(int argv, char **argc)
 	ft_putstr_fd(output, output_file_fd);
 	ft_strdel(&output);
 	printf("NEW FILE POPULATED\n\n");
+
+	if (file->file_out)
+		ft_strdel(&file->file_out);
+	if (file->position)
+		ft_strdel(&file->position);
+	free(file);
+	file = NULL;
 
 	printf("DONE\n\n");
 	return (0);
