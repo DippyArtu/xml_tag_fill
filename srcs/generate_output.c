@@ -3,8 +3,8 @@
 char 		*generate_link(char *code, char *barcode_file)
 {
 	int 	fd;
-	char 	link_start[] = "<picture>https://storage.cloud.google.com/fotobank1/";
-	char	link_end[] = "?hl=ru</picture>";
+	char 	link_start[] = "<picture>https://storage.googleapis.com/fotobank1/";
+	char	link_end[] = "</picture>";
 	char 	*link_output;
 	int		code_c;
 	char 	*line;
