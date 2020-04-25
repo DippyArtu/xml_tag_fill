@@ -13,7 +13,7 @@ typedef struct 		s_file
 	char 	*file_out;
 	char 	*file_tmp;
 	bool	file_start;
-}					t_file;
+}			t_file;
 
 char 		*generate_link(char *code, char *barcode_file);
 char 		*read_file(char *file_name);
